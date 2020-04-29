@@ -28,6 +28,9 @@
 		</section>
 	</section>
 
+	<!-- Modal escoger cantidad -->
+	@include('includes.modalCantidad')
+
 	@include('includes.scripts')	
 </body>
 </html>

@@ -42,6 +42,8 @@ $(document).ready(() => {
     		producto.precio = ele.dataset.precio
     		producto.color = ele.dataset.color
     		producto.cantidad = 1	    	
+            // console.log(producto)
+            formatearUrlWhatsapp()
 	    })
     })
 
@@ -51,19 +53,19 @@ $(document).ready(() => {
     let inputCantidadProducto = document.getElementById('inputCantidadProducto')
     let btnHacerPedido = document.getElementById('btnHacerPedido')
 
+
     btnMenos.addEventListener('click', function(e) {
     	e.preventDefault()
-    	if(inputCantidadProducto.value > 1) {
-    		inputCantidadProducto.value = parseInt(inputCantidadProducto.value) - 1
-    		// Asignar datos de producto al boton pedir del modal 
-    		producto.cantidad = inputCantidadProducto.value
+    	if(producto.cantidad > 1) {
+    		producto.cantidad = parseInt(producto.cantidad) - 1 
+    		inputCantidadProducto.value = producto.cantidad
 	    	formatearUrlWhatsapp()
     	}
     })
     btnMas.addEventListener('click', function(e) {
     	e.preventDefault()
-    	inputCantidadProducto.value = parseInt(inputCantidadProducto.value) + 1
-    	producto.cantidad = inputCantidadProducto.value
+        producto.cantidad = parseInt(producto.cantidad) + 1
+    	inputCantidadProducto.value = producto.cantidad
     	formatearUrlWhatsapp()	
     })
     cardBtnCancelar.addEventListener('click', function(e) {
