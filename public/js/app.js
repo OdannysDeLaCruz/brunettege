@@ -39,10 +39,10 @@ $(document).ready(() => {
     btnSetCantidad.forEach(ele => {
 	    ele.addEventListener('click', function() {
     		producto.nombre = ele.dataset.nombre
-    		producto.precio = ele.dataset.precio
+    		producto.precio = parseFloat(ele.dataset.precio)
     		producto.color = ele.dataset.color
     		producto.cantidad = 1	    	
-            // console.log(producto)
+            console.log(producto)
             formatearUrlWhatsapp()
 	    })
     })
@@ -73,6 +73,6 @@ $(document).ready(() => {
     })
 
     function formatearUrlWhatsapp() {
-    	btnHacerPedido.setAttribute('href', `https://api.whatsapp.com/send?phone=573043614864&text=*Producto:*%20${producto.nombre}%0A*Color:*%20${producto.color}%0A*Unidades:*%20${producto.cantidad}.%0A%0AHola,%20me%20gustarìa%20comprar%20este%20producto.`)
+    	btnHacerPedido.setAttribute('href', `https://api.whatsapp.com/send?phone=573043614864&text=*Producto:*%20${producto.nombre}%0A*Color:*%20${producto.color}%0A*Unidades:*%20${producto.cantidad}%0A*Total:*%20$${producto.precio * producto.cantidad}%0A%0AHola,%20me%20gustarìa%20comprar%20este%20producto.`)
     }
 })
