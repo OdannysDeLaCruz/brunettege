@@ -60,25 +60,25 @@ class PrincipalController extends Controller
      * Obtener una cantidad de productos
      */
     private function getProducts($categoria_id, $limit = 20) {
-    $productos = App\Producto::select('productos.*', 'imagenes.principal', 'imagenes.ruta')
-    	->leftJoin('imagenes', 'imagenes.producto_id', '=', 'productos.id')
-        ->latest()->limit($limit)
-        ->where([
-            ['productos.unidades', '>', 0],
-            ['productos.categoria_id', $categoria_id]
-        ])->get();
+    	$productos = App\Producto::select('productos.*', 'imagenes.principal', 'imagenes.ruta')
+	    	->leftJoin('imagenes', 'imagenes.producto_id', '=', 'productos.id')
+	        ->latest()->limit($limit)
+	        ->where([
+	            ['productos.unidades', '>', 0],
+	            ['productos.categoria_id', $categoria_id]
+        	])->get();
         return $productos;
     }
 
     // Obtener todos los productos
     private function getProductsAll($categoria_id) {
-    $productos = App\Producto::select('productos.*', 'imagenes.principal', 'imagenes.ruta')
-    	->leftJoin('imagenes', 'imagenes.producto_id', '=', 'productos.id')
-        ->latest()
-        ->where([
-            ['productos.unidades', '>', 0],
-            ['productos.categoria_id', $categoria_id]
-        ])->paginate(20);
+	    $productos = App\Producto::select('productos.*', 'imagenes.principal', 'imagenes.ruta')
+	    	->leftJoin('imagenes', 'imagenes.producto_id', '=', 'productos.id')
+	        ->latest()
+	        ->where([
+	            ['productos.unidades', '>', 0],
+	            ['productos.categoria_id', $categoria_id]
+	        ])->paginate(20);
         return $productos;
     }
 }
