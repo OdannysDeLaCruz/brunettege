@@ -1,5 +1,5 @@
 APP_NAME="Brunette Girl Extensiones"
-APP_ENV=local
+APP_ENV=dev
 APP_KEY=base64:30BpdOP6PZpzKjga+rzQGePHfRxhIDAio6fmdgJcS2w=
 APP_DEBUG=true
 APP_URL=https://brunette.herokuapp.com
